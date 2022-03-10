@@ -21,10 +21,16 @@ public class ContaBanco {
 		if (getSaldo() == 0) {
 			setStatus(false);
 		}
+		else {
+			System.out.println("Não foi possível fechar a conta.");
+		}
 	}
 	public void deposito(float valor) {
 		if (getStatus() == true) {
 			setSaldo(getSaldo() + valor);
+		}
+		else {
+			System.out.println("Conta fechada.");
 		}
 	}
 	public void sacar(float valor) {
@@ -32,6 +38,12 @@ public class ContaBanco {
 			if (getSaldo() >= valor) {
 				setSaldo(getSaldo() - valor);
 			}
+			else {
+				System.out.println("Saldo não suficiente.");
+			}
+		}
+		else {
+			System.out.println("Conta fechada.");
 		}
 	}
 	public void pagarMensal() {
@@ -40,12 +52,21 @@ public class ContaBanco {
 				if (getSaldo() >= 12) {
 					setSaldo(getSaldo() - 12);
 				}
+				else {
+					System.out.println("Saldo não suficiente.");
+				}
 			}
 			else if (getTipo() == "CP") {
 				if (getSaldo() >= 20) {
 					setSaldo(getSaldo() - 20);
 				}
+				else {
+					System.out.println("Saldo não suficiente.");
+				}
 			}
+		}
+		else {
+			System.out.println("Conta fechada.");
 		}
 	}
 	
@@ -87,10 +108,11 @@ public class ContaBanco {
 	}
 	
 	public void dados() {
+		System.out.println("--------------------- ");
 		System.out.println("Numero: " + this.numConta);
 		System.out.println("Tipo: " + this.tipo);
 		System.out.println("Dono: " + this.dono);
-		System.out.println("Saldo: " + this.saldo);
+		System.out.println("Saldo: R$" + this.saldo);
 		System.out.println("Status: " + this.status);
 	}
 }
