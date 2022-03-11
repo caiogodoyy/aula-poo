@@ -10,8 +10,8 @@ public class aulaPoo {
 		l[4] = new Lutador("José", "Brasil", 37, 1.70f, 119.3f, 5, 4, 3);
 		l[5] = new Lutador("John", "EUA", 30, 1.81f, 105.7f, 12, 2, 4);
 		
-		l[0].apresentar();
-		l[0].setPeso(10);
-		l[0].apresentar();
+		Luta evento = new Luta();
+		evento.marcarLuta(l[5], l[4]);
+		evento.lutar();
 	}
 }
